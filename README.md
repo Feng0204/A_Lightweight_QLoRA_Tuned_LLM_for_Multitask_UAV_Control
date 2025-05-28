@@ -1,23 +1,31 @@
-# 文件介绍
-dada 文件夹中是训练数据与验证数据
-results 文件夹中为训练过程中保存的loss最小的检查点和最终模型
-loop_session.py 为多轮对话代码文件
-QLORA.py 为训练模型文件
-single.py 为单轮对话代码
-test_base_model.py 用于对于下载的预训练模型进行测试
-tokena.py 为分词
+# File Description
 
-# 使用方法
-## 1.虚拟环境
-requirements.txt 为部分所需的库(pytorch版本是linux上的)
+- `dada` folder contains training and validation data  
+- `results` folder contains the checkpoint with the lowest loss saved during training and the final model  
+- `loop_session.py` is the multi-turn dialogue code file  
+- `QLORA.py` is the model training file  
+- `single.py` is the single-turn dialogue code  
+- `test_base_model.py` is used to test the downloaded pretrained model  
+- `tokena.py` is for tokenization  
 
-## 2.下载模型
-模型下载地址[hungging face](https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct)    
-通过[代码](test_base_model.py)可以自动加载模型并测试，注意第四行代码换成自己的本地位置。 
+# Usage Instructions
 
-## 3.模型训练
-QLORA下为模型训练代码，可根据需要修改必要位置
+## 1. Virtual Environment  
+`requirements.txt` lists some of the required libraries (the PyTorch version is for Linux)  
 
-## 4.运行代码
-多轮对话代码文件loop_session.py。直接运行，无需修改(由于设置了相对路径，所以需要在coderV2下运行该代码)。
-设置的逻辑为输入要求后模型生成代码，此时需要输入y/n 以判断是否使用代码。若输入n可继续输入指令更改代码，输入y则使用代码并清空记录。
+## 2. Download Model  
+Model download link: [Hugging Face](https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct)  
+You can automatically load and test the model using the [code](test_base_model.py).  
+**Note:** Change the path in line 4 to your local path.  
+
+## 3. Model Training  
+`QLORA.py` contains the model training code. Modify necessary parts as needed.  
+
+## 4. Running the Code  
+The multi-turn dialogue code file is `loop_session.py`. Run it directly without modification.  
+(Due to relative paths, you need to run this code from the `coderV2` directory.)  
+
+The workflow: after entering a request, the model generates code.  
+Then input `y/n` to decide whether to use the generated code.  
+- Enter `n` to continue entering instructions to modify the code.  
+- Enter `y` to accept the code and clear the history.  
